@@ -1,0 +1,11 @@
+<div class='container text center'>
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<h2 class="text-center mt-5" id="blogdetailtitle">{{ blog.title }}</h2>
+
+<h5 class="text-center text-muted mb-5">--{{ blog.date|date:'d-m-Y' }}--</h5>
+
+<p>{{ blog.description|safe }}</p>
+{% endblock %}
+</div>

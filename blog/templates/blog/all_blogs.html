@@ -1,0 +1,21 @@
+<div class='container text center'>
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<h1 id='blogtitle' class="font-weight-bold text-center">Добро пожаловать в блог Владимира Ладыжева</h1>
+
+<h2 class="text-center mb-5">Количество постов в блоге:  {{ blogs.count }}</h2>
+<br>
+
+{% for blog in blogs %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+  <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+  <h5>{{ blog.date|date:'d-m-Y'|upper }}</h5>
+  <p>{{ blog.description|safe|truncatechars:100 }}</p>
+  </div>
+</div>
+
+{% endfor %}
+{% endblock %}
+</div>

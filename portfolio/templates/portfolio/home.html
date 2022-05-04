@@ -1,0 +1,41 @@
+<div class='container text center'>
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="row justify-content-center my-3">
+  <div class="col-8">
+    <h1>Портфолио Владимира Ладыжева</h1>
+
+<br>
+<h4>Добро пожаловать на мою персональную страницу. Я увлекаюсь программированием. Надеюсь, в будущем это сможет стать моей профессией.</h4>
+    {% load static %}
+  </div>
+</div>
+<br>
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/my_photo_res.jpg' %}">
+  </div>
+</div>
+<br>
+<h2 class="mt-5">Портфолио</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+</div>
